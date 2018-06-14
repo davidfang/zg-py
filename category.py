@@ -3,19 +3,20 @@
 
 '''产品分类数据抓取'''
 
-from dotenv import load_dotenv
+from dotenv import load_dotenv,find_dotenv
 import os
 import requests
 import pymysql
 import time
 
 #加载配置文件
-load_dotenv()
-DB_HOST= os.get_env('DB_HOST')
-DB_PORT=os.get_env('DB_PORT')
-DB_USER=os.get_env('DB_USER')
-DB_PASSWORD=os.get_env('DB_PASSWORD')
-DB_NAME=os.get_env('DB_NAME')
+load_dotenv(find_dotenv())
+DB_HOST= os.getenv('DB_HOST')
+DB_PORT=os.getenv('DB_PORT')
+DB_USER=os.getenv('DB_USER')
+DB_PASSWORD=os.getenv('DB_PASSWORD')
+DB_NAME=os.getenv('DB_NAME')
+
 # 省钱快报
 r = requests.get('http://api.17gwx.com/operate/discover?app_installtime=1527633664&app_version=2.6.8&channel_name=AppStore&client_id=2&device_id=4E6F2D54-35DB-43E0-B3AF-4E482F257B1A&device_info=iPhone9%2C2&gender=0&idfa=3A7B4D0A-1C9B-4377-8AF3-36F6B5FA18BC&network=Wifi&os_version=10.3.3&sign=0d77a9c9b6d17912bc13795f75eda947&timestamp=1528771950')
 
@@ -64,7 +65,7 @@ try:
         " %  (category['id'], category['parent_id'], category['title'], img_path ,base_url, int(t),int(t))
         print(sql)
         #执行sql语句
-        cursor.execute(sql)
+        # cursor.execute(sql)
     # 执行sql语句
     db.commit()
 except Exception as e:
