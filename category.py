@@ -65,7 +65,7 @@ try:
         " %  (category['id'], category['parent_id'], category['title'], img_path ,base_url, int(t),int(t))
         print(sql)
         #执行sql语句
-        # cursor.execute(sql)
+        cursor.execute(sql)
     # 执行sql语句
     db.commit()
 except Exception as e:
