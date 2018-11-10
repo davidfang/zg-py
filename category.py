@@ -57,7 +57,7 @@ try:
             base_url = ''
             img_path = ''
         else:
-            base_url = 'http://zg-storage.zhicaikeji.com/source'
+            base_url = os.getenv('SOURCE_URL')
             img_path = 'category/' + str(category['id']) + '.jpg'
         # SQL 插入语句
         sql = "INSERT INTO zg_goods_category(`id` ,  `parent_id` ,  `title` ,`status`,`img_path`,`img_base_url`,\

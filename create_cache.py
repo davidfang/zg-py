@@ -21,7 +21,7 @@ load_dotenv(find_dotenv())
 CACHE_USER = os.getenv('CACHE_USER')
 CACHE_PASS = os.getenv('CACHE_PASS')
 
-url = 'http://zg-api.zhicaikeji.com/v1/python/create'
+url = os.getenv('CREATE_CACHE_URL')
 
 
 def create_cache(key, value, exit=60 * 60 * 24):
