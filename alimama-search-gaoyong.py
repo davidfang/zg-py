@@ -90,7 +90,7 @@ class Spider(object):
         # self.web.find_element_by_name('startBiz30day').find_element_by_xpath("../span[@class='btn btn-brand btn-small ml5']").click()
 
 
-        time.sleep(random.randint(4, 7))
+        time.sleep(random.randint(15, 20))
         has_pagenation = True
         current_page = '1'
 
@@ -110,7 +110,7 @@ class Spider(object):
                 break
             # 下一页
             self.web.find_element_by_xpath("//a[@class='btn-last btn btn-xlarge btn-white']").send_keys(Keys.ENTER)
-            time.sleep(random.randint(5, 15))
+            time.sleep(random.randint(15, 20))
             current_page = self.web.find_element_by_xpath("//a[@class='btn btn-xlarge btn-current']").text
             next_page = self.web.find_element_by_xpath("//div[@class='go']/input").get_attribute('value')
 
@@ -255,7 +255,7 @@ if __name__ == '__main__':
         sp.search(category[2])  # 关键词搜索
         sp.add_selection(category[1])  # 加加入对应选品库
         print('《-------搜索 ' + category[1] + ' 结束------》')
-        time.sleep(random.randint(10, 20))
+        time.sleep(random.randint(20, 40))
 
     # print('搜索 女装 开始')
     # sp.search('女装') # 关键词搜索
